@@ -1,3 +1,63 @@
 <resources>
-    <dimen name="fab_margin">16dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <integer name="anim_duration_very_long">1000</integer>
+    <integer name="anim_duration_long">500</integer>
+    <integer name="anim_duration_medium">300</integer>
+
+    <!--
+    Text Sizes-->
+
+    <dimen name="text_xsmall">10sp</dimen>
+    <dimen name="button_text_size">14sp</dimen>
+    <dimen name="et_text_size">15.3sp</dimen>
+    <dimen name="text_large">22sp</dimen>
+    <dimen name="heading_text_size">28sp</dimen>
+    <dimen name="text_xxlarge">32sp</dimen>
+
+    <dimen name="logo_width">160dp</dimen>
+    <dimen name="logo_height">88.6dp</dimen>
+    <dimen name="button_height">40dp</dimen>
+    <dimen name="banner_height">120dp</dimen>
+    <dimen name="paddling_length">33.3dp</dimen>
+
+
+    <!--<dimen name="activity_horizontal_margin">8dp</dimen>
+    <dimen name="activity_vertical_margin">8dp</dimen>-->
+    <dimen name="card_padding_regular">16dp</dimen>
+    <dimen name="card_padding_list">8dp</dimen> <!-- card_padding_regular minus list_padding -->
+    <dimen name="list_padding">8dp</dimen>
+    <dimen name="image_button_padding">12dp</dimen>
+    <dimen name="key_action_width">48dp
+    </dimen>  <!-- icon width (24dp) + 2 * image button padding -->
+    <dimen name="audio_player_width">224dp</dimen>
+    <dimen name="avatar_item_distance">16dp</dimen>
+
+    <dimen name="media_preview_size">80dp</dimen>
+    <dimen name="media_size">56dp</dimen> <!-- ideally not larger than avatar_on_details_screen -->
+    <dimen name="browser_media_size">96dp</dimen>
+    <dimen name="toolbar_elevation">4dp</dimen>
+
+    <dimen name="publish_avatar_top_margin">8dp</dimen>
+    <dimen name="avatar_on_details_screen_size">56dp</dimen>
+
+    <dimen name="input_label_vertical_spacing">4dp</dimen>
+    <dimen name="input_label_horizontal_spacing">4dp</dimen>
+
+    <!-- scanner -->
+    <dimen name="scan_laser_width">4dp</dimen>
+    <dimen name="scan_dot_size">8dp</dimen>
+
+    <dimen name="background_image_opacity">0.12</dimen>
+    <dimen name="rounded_image_border">5dp</dimen>
+    <dimen name="avatar">48dp</dimen>
+    <dimen name="avatar_on_conversation_overview">56dp</dimen>
+    <dimen name="avatar_on_status_message">32dp</dimen>
+    <dimen name="avatar_big">480dp</dimen>
+    <dimen name="sd_label_max_width">256dp</dimen>
+    <dimen name="msg_text_normal">12sp</dimen>
+
+
 </resources>

@@ -18,11 +18,11 @@
             android:scaleType="fitXY"
             android:src="@drawable/greenbanner" />
 
-        <include
-            layout="@layout/white_toolabr"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true" />
+<!--        <include-->
+<!--&lt;!&ndash;            layout="@layout/white_toolabr"&ndash;&gt;-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerInParent="true" />-->
 
         <TextView
             android:id="@+id/tvTitle"

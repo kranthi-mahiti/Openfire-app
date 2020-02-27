@@ -1,20 +1,246 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
     </style>
 
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
+    <style name="LoginTextInputLayoutStyle" parent="Widget.Design.TextInputLayout">
+        <item name="colorControlNormal">@color/white</item>
+        <item name="colorControlActivated">@color/white</item>
+
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <!-- Base Theme for transparent window -->
+    <style name="AppTheme.Transparent">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <!-- Base Theme for ActivityDetail -->
+    <style name="AppTheme.Transparent.ActivityDetail" />
+
+    <!-- Base Theme for ActivityMain -->
+    <style name="AppTheme.ActivityMain" />
+
+
+    <style name="PrimaryFlatButton" parent="Theme.AppCompat.Light">
+        <item name="android:buttonStyle">@style/Widget.AppCompat.Button.Borderless.Colored</item>
+        <item name="colorControlHighlight">@color/grey</item>
+        <item name="colorAccent">@color/black</item>
+    </style>
+
+    <style name="ProgressBarStyle">
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:minHeight">15dip</item>
+        <item name="android:maxHeight">25dip</item>
+    </style>
+
+    <style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
+
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@color/white</item>
+        <item name="colorAccent">@color/black</item>
+    </style>
+
+    <style name="spinnerStyle" parent="@android:style/Widget.TextView.SpinnerItem">
+        <item name="android:padding">15dp</item>
+    </style>
+
+    <style name="TabTextAppearance" parent="TextAppearance.Design.Tab">
+        <item name="textAllCaps">false</item>
+        <item name="android:fontFamily">@font/montserrat_regular</item>
+    </style>
+
+    <style name="AppTheme.WhiteAccent">
+        <item name="colorAccent">@color/colorPrimary</item> <!-- Whatever color you want-->
+    </style>
+
+    <style name="AppTheme.BLACKAccent">
+        <item name="colorAccent">@color/black</item> <!-- Whatever color you want-->
+    </style>
+
+
+    <style name="AppTheme.GreenAccent">
+        <item name="colorAccent">@color/green</item> <!-- Whatever color you want-->
+    </style>
+
+    <style name="AppTheme.Transparents">
+        <item name="colorAccent">@color/transparentFull</item> <!-- Whatever color you want-->
+    </style>
+
+    <style name="PopupMenu" parent="Widget.AppCompat.PopupMenu">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:itemBackground">@color/backgroundColor</item>
+        <item name="android:background">@color/backgroundColor</item>
+    </style>
+
+    <style name="MyLightToolbarStyle" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:colorBackground">@color/white</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+
+    <!--        -->
+    <style name="TextAppearance.Conversations.Display2.Monospace" parent="TextAppearance.AppCompat.Display2">
+        <item name="android:textSize">?TextSizeDisplay2</item>
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">monospace</item>
+        <item name="android:typeface">monospace</item>
+    </style>
+
+    <style name="TextAppearance.Conversations.Title" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">?TextSizeTitle</item>
+    </style>
+
+    <style name="TextAppearance.Conversations.Subhead" parent="TextAppearance.AppCompat.Subhead">
+        <item name="android:textSize">?TextSizeSubhead</item>
+    </style>
+
+    <style name="TextAppearance.Conversations.Body2" parent="TextAppearance.AppCompat.Body2">
+        <item name="android:textSize">?TextSizeBody2</item>
+    </style>
+
+    <style name="TextAppearance.Conversations.Body1" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">?TextSizeBody1</item>
+        <item name="android:textColorLink">?android:textColorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.Conversations.Body1.Warning" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textColor">?color_warning</item>
+    </style>
+
+    <style name="TextAppearance.Conversations.Body1.Linkified" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">?TextSizeBody1</item>
+    </style>
+
+    <style name="TextAppearance.Conversations.Caption" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">?TextSizeCaption</item>
+    </style>
+
+    <style name="Widget.Conversations.EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:textSize">?TextSizeInput</item>
+    </style>
+
+    <style name="Widget.Conversations.SearchView" parent="Widget.Conversations.EditText">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/white70</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="Widget.Conversations.CheckBox" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:textSize">?TextSizeBody1</item>
+    </style>
+
+    <style name="checkBoxStyle" parent="Base.Theme.AppCompat">
+        <item name="colorAccent">@color/grey</item>
+        <item name="android:textColorSecondary">@color/grey</item>
+    </style>
+
+    <style name="Widget.Conversations.RadioButton" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:textSize">?TextSizeBody1</item>
+    </style>
+
+    <style name="Widget.Conversations.Button.Borderless" parent="@style/Widget.AppCompat.Button.Borderless">
+        <item name="android:textSize">?TextSizeBody2</item>
+    </style>
+
+    <style name="TextAppearance.Conversations.Design.Hint" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">?TextSizeCaption</item>
+    </style>
+
+    <style name="TextAppearance.Conversations.Design.Error" parent="TextAppearance.Design.Error">
+        <item name="android:textSize">?TextSizeCaption</item>
+    </style>
+
+    <style name="TextAppearance.Conversations.Body1.Secondary" parent="TextAppearance.Conversations.Body1">
+        <item name="android:textColor">?android:textColorSecondary</item>
+    </style>
+
+    <style name="TextAppearance.Conversations.Body1.Tertiary" parent="TextAppearance.Conversations.Body1">
+        <item name="android:textColor">?android:textColorTertiary</item>
+    </style>
+
+    <style name="TextAppearance.Conversations.Fingerprint" parent="TextAppearance.Conversations.Body1">
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">monospace</item>
+        <item name="android:typeface">monospace</item>
+    </style>
+
+    <style name="InputLabel" parent="TextAppearance.Conversations.Caption">
+        <item name="android:paddingBottom">@dimen/input_label_vertical_spacing</item>
+        <item name="android:paddingLeft">@dimen/input_label_horizontal_spacing</item>
+        <item name="android:paddingRight">@dimen/input_label_horizontal_spacing</item>
+    </style>
+
+    <style name="TextAppearance.Conversations.Status" parent="TextAppearance.Conversations.Caption">
+        <item name="android:textStyle">italic</item>
+    </style>
+
+    <style name="TextAppearance.Conversations.Tag" parent="TextAppearance.Conversations.Caption">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextAppearance.Conversations.Caption.OnDark" parent="TextAppearance.Conversations.Caption">
+        <item name="android:textColor">@color/white70</item>
+    </style>
+
+    <style name="TextAppearance.Conversations.Caption.OnDark.Bold" parent="TextAppearance.Conversations.Caption.OnDark">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextAppearance.Conversations.Caption.Warning" parent="TextAppearance.Conversations.Caption">
+        <item name="android:textColor">@color/red700</item>
+    </style>
+
+    <style name="TextAppearance.Conversations.Caption.Warning.OnDark" parent="TextAppearance.Conversations.Caption">
+        <item name="android:textColor">@color/red500</item>
+    </style>
+
+    <style name="TextAppearance.Conversations.Caption.Highlight" parent="TextAppearance.Conversations.Caption">
+        <item name="android:textColor">?colorAccent</item>
+    </style>
+
+    <style name="TextAppearance.Conversations.Caption.Disabled" parent="TextAppearance.Conversations.Caption">
+        <item name="android:textColor">?android:textColorTertiary</item>
+    </style>
+
+    <style name="TextAppearance.Conversations.Fingerprint.Disabled" parent="TextAppearance.Conversations.Fingerprint">
+        <item name="android:textColor">?android:textColorTertiary</item>
+    </style>
+
+    <style name="TextAppearance.Conversations.Body1.OnDark" parent="TextAppearance.Conversations.Body1">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorLink">@color/white</item>
+    </style>
+
+    <style name="TextAppearance.Conversations.Body1.Emoji.OnDark" parent="TextAppearance.Conversations.Body1">
+        <item name="android:textColor">?EmojiColor</item>
+    </style>
+
+    <style name="TextAppearance.Conversations.Body1.Emoji" parent="TextAppearance.Conversations.Body1">
+        <item name="android:textColor">?EmojiColor</item>
+    </style>
+
+    <style name="TextAppearance.Conversations.Body1.Secondary.OnDark" parent="TextAppearance.Conversations.Body1">
+        <item name="android:textColor">@color/white70</item>
+    </style>
+
+
+    <style name="AlertDialogTheme" parent="ThemeOverlay.AppCompat.Dialog.Alert">
+        <item name="buttonBarNegativeButtonStyle">@style/NegativeButtonStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/PositiveButtonStyle</item>
+    </style>
+
+    <style name="NegativeButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/red</item>
+    </style>
+
+    <style name="PositiveButtonStyle" parent="Widget.AppCompat.Button.ButtonBar.AlertDialog">
+        <item name="android:textColor">@color/green</item>
+    </style>
+
 
 </resources>

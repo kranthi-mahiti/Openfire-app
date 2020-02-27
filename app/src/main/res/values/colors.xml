@@ -1,6 +1,74 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#6200EE</color>
-    <color name="colorPrimaryDark">#3700B3</color>
-    <color name="colorAccent">#03DAC5</color>
+    <color name="colorPrimary">#FBB043</color>
+    <color name="colorPrimaryDark">@color/grey</color>
+    <color name="colorAccent">@color/white</color>
+    <color name="backgroundColor">#d8d8da</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#181a25</color>
+    <color name="grey">#878787</color>
+    <color name="greybkg">#f3f4f5</color>
+    <color name="transparentFull">#00f3f4f5</color>
+    <color name="greenOpaque">#B32D9289</color>
+    <color name="green">#2d9289</color>
+    <color name="green1">#ea2d9289</color>
+    <color name="yellowOpaque">#B3FF9800</color>
+    <color name="blackOpaque">#4d000000</color>
+    <color name="red">#dc4939</color>
+    <color name="transparent">#25232323</color>
+
+
+    <color name="realgreen">#ff388e3c</color>  <!-- green 700 -->
+    <color name="primary">@color/red</color>  <!-- blue 900  #ff0D47A1 changed to red -->
+    <color name="primary_dark">@color/grey</color>  <!-- indigo 900  #ff1A237E  changed to grey -->
+    <color name="accent">#ff0091ea</color> <!-- light blue accent -->
+    <color name="black87">#de000309</color>
+    <color name="black54">#8a000309</color>
+    <color name="black26">#42000000</color>
+    <color name="black12">#1f000000</color>
+    <color name="deep_purple_a100">#ffB388FF</color> <!-- deep purple accent 100 -->
+    <color name="deep_purple_a200">#ff7C4DFF</color> <!-- deep purple accent 200 -->
+    <color name="deep_purple_a400">#ff651FFF</color> <!-- deep purple accent 400 -->
+    <color name="deep_purple_a700">#ff6200EA</color> <!-- deep purple accent 700 -->
+    <color name="realblack">#ff000000</color> <!-- black -->
+    <!-- <color name="white">#ffe2e7f1</color>--> <!-- merge conflict so commented TODO-->
+    <color name="white12">#1fffffff</color>
+    <color name="white70">#b2e2e7f1</color>
+    <color name="white87">#deffffff</color>
+    <color name="green500">#ff4CAF50</color>  <!-- green 500 -->
+    <color name="grey50">#fffafafa</color>  <!-- grey 50 -->
+    <color name="grey200">#ffeeeeee</color>  <!-- grey 200 -->
+    <color name="grey300">#ffe0e0e0</color>  <!-- grey 300 -->
+    <color name="grey300_40">#66e0e0e0</color>
+    <color name="grey500">#ff9e9e9e</color>  <!-- grey 500 -->
+    <color name="grey700">#ff616161</color> <!-- grey 700 -->
+    <color name="grey800">#ff424242</color> <!-- grey 800 -->
+    <color name="grey900">#ff212121</color> <!-- grey 900 -->
+    <color name="grey900_40">#66212121</color>
+    <color name="red800">#ffc62828</color>  <!-- red 800 -->
+    <color name="red500">#fff44336</color>  <!-- red 500 -->
+    <color name="red700">#ffd50000</color> <!-- red 700 -->
+    <color name="orange500">#ffff9800</color> <!-- orange 500 -->
+    <color name="bubble">#ff37474f</color> <!-- blue grey 800 -->
+    <color name="realwhite">#ffffffff</color> <!-- white -->
+
+    <!-- bubbles -->
+    <color name="lightwhite">#fafafa</color> <!-- green 50 -->
+    <color name="lightblue">#bbdefb</color> <!-- blue 100 -->
+    <color name="lightred">#ffffcdd2</color> <!-- red 100 -->
+    <color name="lightgreen">#ffc8e6c9</color> <!-- green 100 -->
+    <color name="darkwhite">#ff424242</color> <!-- grey 800 -->
+    <color name="darkblue">#ff37474f</color> <!-- blue grey 800 -->
+    <color name="darkred">#ffb71c1c</color>  <!-- red 900 -->
+    <color name="darkgreen">#ff1b5e20</color>  <!-- green 900 -->
+
+    <color name="online">#ff388e3c</color> <!-- green 700 -->
+    <color name="away">#ffff9800</color> <!-- orange 500 -->
+    <color name="notavailable">#fff44336</color> <!-- red 500 -->
+    <color name="warning_button">#ffcdd2</color>  <!-- red 100 -->
+    <color name="warning_button_dark">#ffC62828</color> <!-- red 800 -->
+    <color name="chat_right_bkg_color">#83CEFC</color> <!-- red 800 -->
+
+    <!-- scanner -->
+    <color name="scan_result_dots">#ff4caf50</color>
+
 </resources>
