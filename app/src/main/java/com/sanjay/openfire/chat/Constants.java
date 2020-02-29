@@ -17,6 +17,8 @@ public class Constants {
 
     public static final String ACTION_LOGGED_IN = "ejabberd.loggedin";
     public static final String CHAT_PASSWORD = "123456";
+    public static final String USER_NAME = "";
+    public static final String USER_ID = "";
     //    public static String HOST = "3.86.245.10";
 //    public static String HOST = "206.189.136.186";
     public static String HOST = "13.232.42.167";

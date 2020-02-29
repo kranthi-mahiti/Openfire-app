@@ -2,7 +2,6 @@ package com.sanjay.openfire.chat.utilies;
 
 import android.util.Log;
 
-import com.crashlytics.android.Crashlytics;
 
 
 public class Logger {
@@ -21,7 +20,7 @@ public class Logger {
      * @param e
      */
     public static void logE(String tag, String desc, Exception e) {
-        Crashlytics.log(Log.ERROR, tag, desc + e);
+//        Crashlytics.log(Log.ERROR, tag, desc + e);
         Log.e(tag, desc, e);
     }
 
@@ -32,7 +31,7 @@ public class Logger {
      * @param desc
      */
     public static void logD(String tag, String desc) {
-        Crashlytics.log(Log.DEBUG, tag, desc);
+//        Crashlytics.log(Log.DEBUG, tag, desc);
 //       Logger.logD(tag, "" + desc);
         /*int maxLogSize = 1000;
         for(int i = 0; i <= desc.length() / maxLogSize; i++) {
@@ -52,6 +51,6 @@ public class Logger {
      */
     public static void logV(String tag, String desc) {
 //        Log.v(tag, "" + desc);
-        Crashlytics.log(Log.VERBOSE, tag, desc);
+//        Crashlytics.log(Log.VERBOSE, tag, desc);
     }
 }

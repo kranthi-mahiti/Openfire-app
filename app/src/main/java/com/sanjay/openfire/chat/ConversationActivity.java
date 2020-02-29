@@ -7,9 +7,11 @@
 
 package com.sanjay.openfire.chat;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -18,11 +20,23 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.sanjay.openfire.MyApplication;
+import com.sanjay.openfire.R;
+import com.sanjay.openfire.chat.database.dao.MessagesDTO;
+import com.sanjay.openfire.chat.database.dao.MessagesDao;
+import com.sanjay.openfire.chat.exceptions.OelpException;
+import com.sanjay.openfire.chat.models.MessageChatModel;
+import com.sanjay.openfire.chat.utilies.ConnectionUtils;
+import com.sanjay.openfire.chat.utilies.DateandTimeUtils;
+import com.sanjay.openfire.chat.utilies.Logger;
+import com.sanjay.openfire.chat.utilies.MySharedPref;
 
 import org.jivesoftware.smack.ConnectionListener;
 import org.jivesoftware.smack.MessageListener;
@@ -60,21 +74,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
-import fr.arnaudguyon.xmltojsonlib.XmlToJson;
-import mahiti.org.oelp.MyApplication;
-import mahiti.org.oelp.R;
-import mahiti.org.oelp.chat.database.dao.MessagesDTO;
-import mahiti.org.oelp.chat.database.dao.MessagesDao;
-import mahiti.org.oelp.chat.exceptions.OelpException;
-import mahiti.org.oelp.chat.models.MessageChatModel;
-import mahiti.org.oelp.chat.utilies.ConnectionUtils;
-import mahiti.org.oelp.chat.utilies.DateandTimeUtils;
-import mahiti.org.oelp.utils.AppUtils;
-import mahiti.org.oelp.utils.Logger;
-import mahiti.org.oelp.utils.MySharedPref;
-import mahiti.org.oelp.views.adapters.ChatAdapter;
+import static com.sanjay.openfire.chat.Constants.HOST;
 
-import static mahiti.org.oelp.chat.Constants.HOST;
 
 public class ConversationActivity extends AppCompatActivity {
     XMPPTCPConnection connection = null;
@@ -108,19 +109,19 @@ public class ConversationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conversation);
-        toolbar = findViewById(R.id.white_toolbar);
-        setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null)
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("");
-        }
+//        toolbar = findViewById(R.id.white_toolbar);
+//        setSupportActionBar(toolbar);
+//        if (getSupportActionBar() != null)
+//            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        if (getSupportActionBar() != null) {
+//            getSupportActionBar().setTitle("");
+//        }
         pd = new ProgressDialog(this);
 
         pd.setMessage("loading");
         pd.setIndeterminate(true);
 
-        AppUtils.setupUI(findViewById(R.id.rlMain), this);
+        //AppUtils.setupUI(findViewById(R.id.rlMain), this);
 
         connection = connectionUtils.getXmptcConnection();
         reconnectionManager = ReconnectionManager.getInstanceFor(connection);
@@ -128,7 +129,7 @@ public class ConversationActivity extends AppCompatActivity {
         dateandTimeUtils = new DateandTimeUtils();
         mySharedPref = new MySharedPref(this);
         try {
-            nickname = Resourcepart.from(mySharedPref.readString(mahiti.org.oelp.utils.Constants.USER_NAME, ""));
+            nickname = Resourcepart.from(mySharedPref.readString(Constants.USER_NAME, ""));
         } catch (XmppStringprepException e) {
             e.printStackTrace();
         }
@@ -139,7 +140,7 @@ public class ConversationActivity extends AppCompatActivity {
             groupUuid = intent.getStringExtra("group_uuid");
             username = intent.getStringExtra("username");
         }
-        roomName = groupUuid + "@conference." + Constants.HOST;
+        roomName = groupUuid + "@conference." + HOST;
         initView();
 
 
@@ -192,7 +193,10 @@ public class ConversationActivity extends AppCompatActivity {
 //        if(){
         try {
             Set<EntityBareJid> roomList = manager.getJoinedRooms();
-            if (!roomList.contains(manager.getRoomInfo(mucJid).getRoom()) && userType == mahiti.org.oelp.utils.Constants.USER_MASTER) {
+            if (!roomList.contains(manager.getRoomInfo(mucJid).getRoom())
+//                    &&
+//                    userType == Constants.USER_MASTER
+            ) {
                 muc.join(nickname);
             }
         } catch (SmackException.NoResponseException e) {
@@ -301,24 +305,24 @@ public class ConversationActivity extends AppCompatActivity {
 //            oldMessages();
         }
 
-        userType = mySharedPref.readInt(mahiti.org.oelp.utils.Constants.USER_TYPE, mahiti.org.oelp.utils.Constants.USER_TEACHER);
-
-        if (userType != mahiti.org.oelp.utils.Constants.USER_MASTER) {
-            cutomchatui.setVisibility(View.VISIBLE);
-        }
-
-        if (userType == mahiti.org.oelp.utils.Constants.USER_TRAINER || userType == mahiti.org.oelp.utils.Constants.USER_MASTER)
-            getRetrivedMessages();
-        else
-            getRetrivedMessagesOnDate();
-
-
-        if (userType == mahiti.org.oelp.utils.Constants.USER_MASTER) {
-            connectionUtils.getconnected(this);
-            pingServer();
-            onResume();
-            adapter.notifyDataSetChanged();
-        }
+//        userType = mySharedPref.readInt(Constants.USER_TYPE, Constants.USER_TEACHER);
+//
+//        if (userType != Constants.USER_MASTER) {
+//            cutomchatui.setVisibility(View.VISIBLE);
+//        }
+//
+//        if (userType == Constants.USER_TRAINER || userType == Constants.USER_MASTER)
+//            getRetrivedMessages();
+//        else
+//            getRetrivedMessagesOnDate();
+//
+//
+//        if (userType == Constants.USER_MASTER) {
+//            connectionUtils.getconnected(this);
+//            pingServer();
+//            onResume();
+//            adapter.notifyDataSetChanged();
+//        }
         message_edit_text.setOnFocusChangeListener((view, hasFocus) -> {
             if (hasFocus) {
                 if (!messageChatModelList.isEmpty())
@@ -335,9 +339,6 @@ public class ConversationActivity extends AppCompatActivity {
         if (connection == null)
             connection = connectionUtils.getXmptcConnection();
         connectionUtils.getconnected(this);
-        if (userType == mahiti.org.oelp.utils.Constants.USER_MASTER) {
-            recieveIncomingChatmessage();
-        }
 //        recieveIncomingChatmessage();
         handleOfflineMessages(connection);
         pingServer();
@@ -367,9 +368,9 @@ public class ConversationActivity extends AppCompatActivity {
         //            EntityBareJid mucJid = JidCreate.entityBareFrom(roomName);
         muc = manager.getMultiUserChat(mucJid);
         muc.addMessageListener(new MessageListener() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void processMessage(Message message) {
-                XmlToJson xmlToJson = new XmlToJson.Builder(message.toXML().toString()).build();
 
                 String generator = message.getBody("generator");
                 String label = message.getBody("label");
@@ -534,6 +535,7 @@ public class ConversationActivity extends AppCompatActivity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public String getMessageTime(XmlStringBuilder xmlStringBuilder) {
         String currentStudentSection = null;
         try {
@@ -584,6 +586,7 @@ public class ConversationActivity extends AppCompatActivity {
         return currentStudentSection;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public String getMessagegeneratoruuid(XmlStringBuilder xmlStringBuilder) {
         String currentStudentSection = null;
         String currentStudent = null;
@@ -661,9 +664,9 @@ public class ConversationActivity extends AppCompatActivity {
         muc = manager.getMultiUserChat(mucJid);
         Message message;
         muc.addMessageListener(new MessageListener() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void processMessage(Message message) {
-                XmlToJson xmlToJson = new XmlToJson.Builder(message.toXML().toString()).build();
 
                 String generator = message.getBody("generator");
                 String label = message.getBody("label");
@@ -871,7 +874,7 @@ public class ConversationActivity extends AppCompatActivity {
         MessagesDao messagesDao = new MessagesDao();
         List<MessagesDTO> messagesAllDTOList = new ArrayList<>();
         try {
-            String datetime = messagesDao.userDateTime(mySharedPref.readString(mahiti.org.oelp.utils.Constants.USER_ID, ""));
+            String datetime = messagesDao.userDateTime(mySharedPref.readString(Constants.USER_ID, ""));
             messagesAllDTOList = messagesDao.getAllMessagesFromTime(roomName, datetime);
         } catch (OelpException e) {
             e.printStackTrace();
@@ -913,11 +916,10 @@ public class ConversationActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-//        if (userType == mahiti.org.oelp.utils.Constants.USER_MASTER) {
+//        if (userType == Constants.USER_MASTER) {
 //            leaveMuc();
 //        }
         ConversationActivity.this.finish();
-        overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_right);
     }
 
     @Override
@@ -937,6 +939,7 @@ public class ConversationActivity extends AppCompatActivity {
             muc = manager.getMultiUserChat(mucJid);
             manager.setAutoJoinOnReconnect(true);
             muc.addMessageListener(new MessageListener() {
+                @RequiresApi(api = Build.VERSION_CODES.KITKAT)
                 @Override
                 public void processMessage(Message message) {
                     String generator = message.getBody("generator");

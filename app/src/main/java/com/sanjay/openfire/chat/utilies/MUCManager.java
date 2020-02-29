@@ -11,6 +11,10 @@ package com.sanjay.openfire.chat.utilies;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.sanjay.openfire.chat.Constants;
+import com.sanjay.openfire.chat.database.dao.MessagesDao;
+import com.sanjay.openfire.chat.exceptions.OelpException;
+
 import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
@@ -31,11 +35,6 @@ import org.jxmpp.stringprep.XmppStringprepException;
 import java.util.Date;
 import java.util.Set;
 
-import mahiti.org.oelp.chat.Constants;
-import mahiti.org.oelp.chat.database.dao.MessagesDao;
-import mahiti.org.oelp.chat.exceptions.OelpException;
-import mahiti.org.oelp.utils.Logger;
-import mahiti.org.oelp.utils.MySharedPref;
 
 public class MUCManager {
     private ConnectionUtils connectionUtils = null;
@@ -174,10 +173,10 @@ public class MUCManager {
             connection = connectionUtils.getXmptcConnection();
         MultiUserChatManager manager = MultiUserChatManager.getInstanceFor(connection);
         try {
-            EntityBareJid mucJid = JidCreate.entityBareFrom(roomName + "@conference." + mahiti.org.oelp.chat.Constants.HOST);
+            EntityBareJid mucJid = JidCreate.entityBareFrom(roomName + "@conference." + Constants.HOST);
             MultiUserChat muc = manager.getMultiUserChat(mucJid);
-           Logger.logD(TAG, "username" + sharedPref.readString(mahiti.org.oelp.utils.Constants.USER_NAME, ""));
-            Resourcepart nickname = Resourcepart.from(sharedPref.readString(mahiti.org.oelp.utils.Constants.USER_NAME, ""));
+           Logger.logD(TAG, "username" + sharedPref.readString(Constants.USER_NAME, ""));
+            Resourcepart nickname = Resourcepart.from(sharedPref.readString(Constants.USER_NAME, ""));
             if (nickname == null) {
                 Toast.makeText(mContext, "Username is empty", Toast.LENGTH_SHORT).show();
                 return false;
@@ -188,10 +187,10 @@ public class MUCManager {
             sharedPref.writeBoolean("joined", true);
             MessagesDao messagesDao = new MessagesDao();
             try {
-                if (!messagesDao.userDataExists(sharedPref.readString(mahiti.org.oelp.utils.Constants.USER_ID, "")))
-                    messagesDao.insertUserPointEntry(sharedPref.readString(mahiti.org.oelp.utils.Constants.USER_ID, ""), "", DateandTimeUtils.currentDateTime());
+                if (!messagesDao.userDataExists(sharedPref.readString(Constants.USER_ID, "")))
+                    messagesDao.insertUserPointEntry(sharedPref.readString(Constants.USER_ID, ""), "", DateandTimeUtils.currentDateTime());
                 else
-                    messagesDao.insertUserPointEntry(sharedPref.readString(mahiti.org.oelp.utils.Constants.USER_ID, ""), "", DateandTimeUtils.currentDateTime());
+                    messagesDao.insertUserPointEntry(sharedPref.readString(Constants.USER_ID, ""), "", DateandTimeUtils.currentDateTime());
             } catch (OelpException e) {
                 e.printStackTrace();
             }
@@ -220,9 +219,9 @@ public class MUCManager {
             connection = connectionUtils.getXmptcConnection();
         MultiUserChatManager manager = MultiUserChatManager.getInstanceFor(connection);
         try {
-            EntityBareJid mucJid = JidCreate.entityBareFrom(groupCreationKey + "@conference." + mahiti.org.oelp.chat.Constants.HOST);
+            EntityBareJid mucJid = JidCreate.entityBareFrom(groupCreationKey + "@conference." + Constants.HOST);
             MultiUserChat muc = manager.getMultiUserChat(mucJid);
-            Resourcepart nickname = Resourcepart.from(sharedPref.readString(mahiti.org.oelp.utils.Constants.USER_NAME, ""));
+            Resourcepart nickname = Resourcepart.from(sharedPref.readString(Constants.USER_NAME, ""));
             setConfig(muc);
             muc.createOrJoin(nickname);
             return true;
@@ -250,7 +249,7 @@ public class MUCManager {
             Form form = multiUserChat.getConfigurationForm();
             Form submitForm = form.createAnswerForm();
             submitForm.setTitle(multiUserChat.getReservedNickname());
-            Set<Jid> owners = JidUtil.jidSetFrom(new String[]{sharedPref.readString(mahiti.org.oelp.utils.Constants.USER_ID, "") + "@206.189.136.186"});
+            Set<Jid> owners = JidUtil.jidSetFrom(new String[]{sharedPref.readString(Constants.USER_ID, "") + "@206.189.136.186"});
             submitForm.setAnswer("muc#roomconfig_roomowners", owners.toString());
             submitForm.setAnswer("muc#roomconfig_publicroom", true);
             submitForm.setAnswer("muc#roomconfig_persistentroom", true);

@@ -9,6 +9,8 @@ package com.sanjay.openfire.chat.utilies;
 
 import android.util.Log;
 
+import com.sanjay.openfire.chat.models.UserModel.UserModel;
+
 import org.jivesoftware.smack.SmackException;
 import org.jivesoftware.smack.XMPPConnection;
 import org.jivesoftware.smack.XMPPException;
@@ -26,10 +28,8 @@ import org.jxmpp.stringprep.XmppStringprepException;
 
 import java.util.List;
 
-import mahiti.org.oelp.chat.models.UserModel.UserModel;
-import mahiti.org.oelp.utils.Logger;
+import static com.sanjay.openfire.chat.Constants.HOST;
 
-import static mahiti.org.oelp.chat.Constants.HOST;
 
 public class Userutils {
     ConnectionUtils connectionUtils = new ConnectionUtils();
