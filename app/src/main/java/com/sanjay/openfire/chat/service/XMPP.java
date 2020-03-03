@@ -66,7 +66,7 @@ public class XMPP {
         builder.setPort(PORT);
         builder.setCompressionEnabled(false);
         builder.setDebuggerEnabled(true);
-        builder.setSecurityMode(ConnectionConfiguration.SecurityMode.ifpossible);
+        builder.setSecurityMode(ConnectionConfiguration.SecurityMode.disabled);
         builder.setSendPresence(true);
 
         builder.setKeystoreType("AndroidCAStore");

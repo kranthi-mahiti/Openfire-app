@@ -21,7 +21,7 @@ public class Constants {
     public static final String USER_ID = "";
     //    public static String HOST = "3.86.245.10";
 //    public static String HOST = "206.189.136.186";
-    public static String HOST = "13.232.42.167";
+    public static String HOST = "ama1s-imac.localdomain";
     public static DatabaseHandlerClass databaseHandlerClass = new DatabaseHandlerClass(MyApplication.getContext());
 
 
