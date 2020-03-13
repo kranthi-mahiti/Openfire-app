@@ -50,5 +50,25 @@ dependencies {
     implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'com.github.bumptech.glide:glide:4.10.0'
     implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    debugImplementation "com.github.ChuckerTeam.Chucker:library:3.1.2"
+    releaseImplementation "com.github.ChuckerTeam.Chucker:library-no-op:3.1.2"
+    //logging and interceptor
+    implementation "com.squareup.okhttp3:logging-interceptor:4.2.2"
+    // Retrofit & OkHttp
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+
+    // JSON Converter
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
+    // RxJava
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.9'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+// RxAndroid
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    //Retrofit
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.retrofit2:retrofit:2.6.2'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.0'
+
 
 }
